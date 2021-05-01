@@ -133,7 +133,7 @@ module.exports = function ({ bot, config, commands, hooks, knex, threads }) {
       // message is undefined for reactions to parent reactionThreads or past menus
       if (typeof beforeNewThreadData.message === "undefined") return;
       try {
-        createMenu(beforeNewThreadData.message.channel.id, null, true);
+        createMenu(beforeNewThreadData.message.channel.id);
       } catch (e) {
         console.error(`[ReactionThreads] Could not send auto-response to user: ${e}`);
       }
@@ -165,10 +165,8 @@ module.exports = function ({ bot, config, commands, hooks, knex, threads }) {
      * Create menu for user in given channel
      * @param {string} channelId 
      */
-    async function createMenu(channelId, thread = null, newMenu = false, testLength = false) {
-      const newMenuResponse = config["reactionThreads-newMenuResopnse"] ? config["reactionThreads-newMenuResopnse"] : `Thank you for your message!`
-      let responseMessage = newMenu ? `${newMenuResponse} ` : ``;
-      responseMessage += config["reactionThreads-resopnseMessage"] ? config["reactionThreads-resopnseMessage"] :
+    async function createMenu(channelId, thread = null, testLength = false) {
+      let responseMessage = config["reactionThreads-resopnseMessage"] ? config["reactionThreads-resopnseMessage"] :
         "If you could select one of the following reactions that best fits your message, that would help us out a lot!";
       const formReactions = reactionList();
       for (const reaction of formReactions) {
@@ -290,7 +288,7 @@ module.exports = function ({ bot, config, commands, hooks, knex, threads }) {
 
       if (args.description) {
         const description = args.description.trim();
-        menuMsgLength = await createMenu(null, null, true, true);
+        menuMsgLength = await createMenu(null, null, true);
         if ((menuMsgLength + description.length + 20) > 2000) {
           message.channel.createMessage("⚠️ That custom description is too long! Consider shortening other descriptions");
           return;
