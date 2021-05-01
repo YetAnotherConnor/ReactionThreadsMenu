@@ -19,7 +19,7 @@ and after restarting your bot, messages sent to the bot directly will have the s
 - Defaults to true, but adding `reactionThreads-menu = false` in your config disables this.
 
 `reactionThreads-oldMenus` Menus created in prior closed threads can create a new thread.
-- Defaults to true, but adding `reactionThreads-menu = false` in your config disables this.
+- Defaults to true, but adding `reactionThreads-oldMenus = false` in your config disables this.
 
 ### Information
 This plugin requires the `ReactionThreadsMenuData.json` file which is created on first launch; moving or deleting this file will lose necessary data.
