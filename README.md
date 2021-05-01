@@ -13,8 +13,10 @@ and after you restart your bot, messages sent to the bot directly will have the 
 ### Extra Configuration
 `reactionThreads-resopnseMessage` the menu message header
 - Defaults to "If you could select one of the following reactions that best fits your message, that would help us out a lot!"
+
 `reactionThreads-menu` allows users to send the menu command and recieve a new menu
 - Defaults to true, but adding `reactionThreads-menu = false` in your config disables this
+
 `reactionThreads-oldMenus` menus created prior closed threads can create a new thread
 - Defaults to true, but adding `reactionThreads-menu = false` in your config disables this
 
