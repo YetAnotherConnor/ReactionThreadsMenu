@@ -8,7 +8,7 @@ Then in your config.ini file, add:
 plugins[] = npm:YetAnotherConnor/ReactionThreadsMenu
 extraIntents[] = directMessageReactions
 ```
-and after restarting your bot, messages sent to the bot directly will have the same menu of ractions used in `ReactionThreads`!
+and after restarting your bot, messages sent to the bot directly will have the same menu of reactions used in `ReactionThreads`!
 
 ## Useage
 ### Extra Configuration
