@@ -28,6 +28,7 @@ If you run multiple instances of the bot from the same folder, the same `reactio
 ## Commands
 ### Adding a Reaction Description
 Useage: `!rtDescription <ChannelID> <MessageID> <Emoji> [Description]`
+
 - `ChannelID` has to be the ID of the channel the message the reaction should be added to is in.
 - `MessageID` is the ID of the message in that channel.
 - `Emoji` is just the emoji directly from the emoji picker without any changes.
@@ -37,9 +38,11 @@ If the description parameter is not passed, the bot will display the current des
 
 ### Sending a New Menu
 Useage: `!menu`
+
 This command will create a new menu for the user
 If `reactionThreads-menu` is set to false, only staff are able to create a new menu, otherwise both user and staff are able to use this command
 
 ### Checking and Validating Menu Appearence
 Useage: `!menutest`
+
 The bot will show how the menu appears to the user and what each response is, which can only be used in the inbox server
