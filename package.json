@@ -1,0 +1,7 @@
+ {
+  "name": "reactionthreadsmenu",
+  "version": "1.0.0",
+  "description": "An additional plugin for Dark's ReactionThreads that creates a menu of reactions in private channels",
+  "main": "./reactionThreadsMenu.js",
+  "author": "YetAnotherConnor"
+}
