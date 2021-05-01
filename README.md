@@ -34,7 +34,8 @@ Useage: `!rtDescription <ChannelID> <MessageID> <Emoji> [Description]`
 - `Emoji` is just the emoji directly from the emoji picker without any changes.
 - `Description` is description to be shown in a menu for that reaction
 
-If the description parameter is not passed, the bot will display the current description
+If the description parameter *is not* passed, the bot will display the currently set custom description.
+If the description parameter *is* passed, the bot will set the reaction to use this new description.
 
 ### Sending a New Menu
 Useage: `!menu`
