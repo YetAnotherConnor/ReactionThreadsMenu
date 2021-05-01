@@ -24,7 +24,6 @@ module.exports = function ({ bot, config, commands, hooks, knex, threads }) {
       // Load registered reactions if the file exists
       const data = fs.readFileSync(`./ReactionThreadsMenuData${jsonSuffix}.json`);
       reactions = JSON.parse(data);
-      //console.info(`[ReactionThreads] Successfully loaded ${reactions.length - 1} reaction(s)`);
     }
 
     //#region filesystem
