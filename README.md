@@ -17,7 +17,7 @@ and after you restart your bot, messages sent to the bot directly will have the 
 `reactionThreads-menu` allows users to send the menu command and recieve a new menu
 - Defaults to true, but adding `reactionThreads-menu = false` in your config disables this
 
-`reactionThreads-oldMenus` menus created prior closed threads can create a new thread
+`reactionThreads-oldMenus` menus created in prior closed threads can create a new thread
 - Defaults to true, but adding `reactionThreads-menu = false` in your config disables this
 
 ### Information
