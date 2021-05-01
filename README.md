@@ -3,7 +3,7 @@
 ## Setup
 This plugin requires [Dark's ReactionThreads](https://github.com/MMPlugins/ReactionThreads) to function and must be installed first
 
-After adding `ReactionThreads`, in your config.ini file, add:
+Then in your config.ini file, add:
 ```
 plugins[] = npm:YetAnotherConnor/ReactionThreadsMenu
 extraIntents[] = directMessageReactions
@@ -12,13 +12,13 @@ and after restarting your bot, messages sent to the bot directly will have the s
 
 ## Useage
 ### Extra Configuration
-`reactionThreads-resopnseMessage` the menu message header.
+`reactionThreads-resopnseMessage` The menu message header.
 - Defaults to "If you could select one of the following reactions that best fits your message, that would help us out a lot!"
 
-`reactionThreads-menu` allows users to send the menu command and recieve a new menu.
+`reactionThreads-menu` Allows users to send the menu command and recieve a new menu.
 - Defaults to true, but adding `reactionThreads-menu = false` in your config disables this.
 
-`reactionThreads-oldMenus` menus created in prior closed threads can create a new thread.
+`reactionThreads-oldMenus` Menus created in prior closed threads can create a new thread.
 - Defaults to true, but adding `reactionThreads-menu = false` in your config disables this.
 
 ### Information
@@ -30,10 +30,10 @@ If you run multiple instances of the bot from the same folder, the same `reactio
 ### Adding a Reaction Description
 Useage: `!rtDescription <ChannelID> <MessageID> <Emoji> [Description]`
 
-- `ChannelID` has to be the ID of the channel the message the reaction should be added to is in.
-- `MessageID` is the ID of the message in that channel.
-- `Emoji` is just the emoji directly from the emoji picker without any changes.
-- `Description` is description to be shown in a menu for that reaction.
+- `ChannelID` The ID of the channel the message the reaction is in.
+- `MessageID` The ID of the message in that channel.
+- `Emoji` The emoji directly from the emoji picker without any changes.
+- `Description` The description to be shown in a menu for that reaction.
 
 If the description parameter *is not* passed, the bot will display the currently set custom description.
 
