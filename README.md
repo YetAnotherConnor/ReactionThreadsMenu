@@ -32,6 +32,7 @@ Useage: `!rtDescription <ChannelID> <MessageID> <Emoji> [Description]`
 - `MessageID` is the ID of the message in that channel.
 - `Emoji` is just the emoji directly from the emoji picker without any changes.
 - `Description` is description to be shown in a menu for that reaction
+
 If the description parameter is not passed, the bot will display the current description
 
 ### Sending a New Menu
