@@ -2,12 +2,13 @@
 
 ## Setup
 This plugin requires [Dark's ReactionThreads](https://github.com/MMPlugins/ReactionThreads) to function and must be installed first
+
 After adding `ReactionThreads`, in your config.ini file, add:
 ```
 plugins[] = npm:YetAnotherConnor/ReactionThreadsMenu
 extraIntents[] = directMessageReactions
 ```
-and after you restart your bot, messages sent to the bot directly will have the same menu of ractions used in `ReactionThreads`!
+and after restarting your bot, messages sent to the bot directly will have the same menu of ractions used in `ReactionThreads`!
 
 ## Useage
 ### Extra Configuration
