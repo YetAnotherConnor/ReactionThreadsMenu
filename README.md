@@ -12,7 +12,7 @@ and after restarting your bot, messages sent to the bot directly will have the s
 
 ## Useage
 ### Extra Configuration
-`reactionThreads-resopnseMessage` The menu message header.
+`reactionThreads-responseMessage` The menu message header.
 - Defaults to "If you could select one of the following reactions that best fits your message, that would help us out a lot!"
 
 `reactionThreads-menu` Allows users to send the menu command and recieve a new menu.
