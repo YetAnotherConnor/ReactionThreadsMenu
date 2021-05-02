@@ -166,7 +166,7 @@ module.exports = function ({ bot, config, commands, hooks, knex, threads }) {
      * @param {string} channelId 
      */
     async function createMenu(channelId, thread = null, testLength = false) {
-      let responseMessage = config["reactionThreads-resopnseMessage"] ? config["reactionThreads-resopnseMessage"] :
+      let responseMessage = config["reactionThreads-responseMessage"] ? config["reactionThreads-responseMessage"] :
         "If you could select one of the following reactions that best fits your message, that would help us out a lot!";
       const formReactions = reactionList();
       for (const reaction of formReactions) {
