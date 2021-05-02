@@ -176,7 +176,8 @@ module.exports = function ({ bot, config, commands, hooks, knex, threads }) {
       if (testLength) return responseMessage.length;
       bot.createMessage(channelId, responseMessage).then(newMessage => {
         for (const reaction of formReactions) {
-          bot.addMessageReaction(newMessage.channel.id, newMessage.id, reaction.emoji).catch(e => { });
+          if (reaction.channelId === "version") continue;
+          bot.addMessageReaction(newMessage.channel.id, newMessage.id, reaction.emoji.replace(">", "")).catch(e => { });
         }
         if (thread) {
           thread.postSystemMessage(":gear: **ReactionThreads:** menu sent to user!");
