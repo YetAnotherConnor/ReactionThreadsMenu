@@ -1,8 +1,9 @@
 module.exports = function ({ bot, config, commands, hooks, knex, threads }) {
   const fs = require("fs");
   const Eris = require("eris");
-  const pluginVersion = "1.0";
-  const changelogUrl = "=> tbd <=";
+  const erisEndpoints = require("eris/lib/rest/Endpoints");
+  const pluginVersion = "1.1";
+  const changelogUrl = "https://github.com/YetAnotherConnor/ReactionThreadsMenu/blob/main/CHANGELOG.md";
   let rtReactions = [];
   let reactions = [];
 
@@ -234,7 +235,32 @@ module.exports = function ({ bot, config, commands, hooks, knex, threads }) {
           if (oldChannel.parentID == reaction.categoryId) {
             userThread.postSystemMessage(`:gear: **ReactionThreads:** User reacted with ${reaction.emoji} thread does not need to move!`);
           } else {
-            await bot.editChannel(userThread.channel_id, { parentID: reaction.categoryId });
+            await bot.editChannel(userThread.channel_id, { parentID: reaction.categoryId })
+              .catch(e => {
+                userThread.postSystemMessage(`Failed to move thread: ${e.message}`);
+                return;
+              });
+            // If enabled, sync thread channel permissions with the category it's moved to
+            if (config.syncPermissionsOnMove) {
+              const targetCategory = bot.getChannel(reaction.categoryId);
+              const newPerms = Array.from(targetCategory.permissionOverwrites.map(ow => {
+                return {
+                  id: ow.id,
+                  type: ow.type,
+                  allow: ow.allow,
+                  deny: ow.deny
+                };
+              }));
+
+              try {
+                await bot.requestHandler.request("PATCH", erisEndpoints.CHANNEL(userThread.channel_id), true, {
+                  permission_overwrites: newPerms
+                });
+              } catch (e) {
+                userThread.postSystemMessage(`Thread moved to ${targetCategory.name.toUpperCase()}, but failed to sync permissions: ${e.message}`);
+                return;
+              }
+            }
             const toPing = reaction.pingRoleId != null ? reaction.pingRoleId : null;
             userThread.postSystemMessage(`:gear: **ReactionThreads:** Thread moved because of reaction ${reaction.emoji}${toPing != null ? " <@&" + toPing + ">" : ""}`,
               { allowedMentions: { roles: [toPing] } },
@@ -342,7 +368,7 @@ module.exports = function ({ bot, config, commands, hooks, knex, threads }) {
           responses[responses.length - 1] += `\n${responseItem}`;
         }
       }
-      for(const response of responses){
+      for (const response of responses) {
         bot.createMessage(message.channel.id, response);
       }
     }
